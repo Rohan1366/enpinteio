@@ -3,6 +3,7 @@
   import { loginController } from "../controllers/authController.js";
   import { requireSignIn } from "../middlewares/authMiddleware.js";
   import { isAdmin } from "../middlewares/authMiddleware.js";
+  import { getUsersController } from "../controllers/authController.js";
   //router object
 const router = express.Router();
 
@@ -21,5 +22,8 @@ router.get("/user-auth", requireSignIn, (req, res) => {
   router.get("/admin-auth", requireSignIn, isAdmin, (req, res) => {
     res.status(200).send({ ok: true });
   });
+
+  // get-users
+router.get("/get-user",getUsersController)
 
   export default router;

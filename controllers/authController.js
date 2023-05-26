@@ -103,3 +103,25 @@ export const loginController = async (req, res) => {
     });
   }
 };
+
+export const getUsersController = async(req,res)=>{
+  try {
+    const users = await userModel
+      .find({})
+      .limit(20)
+      .sort({ createdAt: -1 });
+    res.status(200).send({
+      success: true,
+      counTotal: users.length,
+      message: "ALLusers ",
+      users,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      message: "Erorr in getting users",
+      error: error.message,
+    });
+  }
+}
