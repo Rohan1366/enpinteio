@@ -8,7 +8,8 @@ const accountSchema = new mongoose.Schema(
       trim: true,
     },
     balance: {
-      type: Number
+      type: Number,
+      default:0
     },
   },
   { timestamps: true }

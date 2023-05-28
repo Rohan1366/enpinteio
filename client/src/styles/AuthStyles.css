@@ -1,0 +1,62 @@
+/* ===================================
+========= register page  */
+.form-container {
+    margin-top: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 70vh;
+    flex-direction: column;
+    background-color: #00DBDE;
+    background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);
+
+  }
+ 
+
+  
+ 
+  
+  .form-container form .title {
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+ 
+  
+  .form-container form button {
+    border: 1px solid black;
+    border-radius: 6;
+    background-color: #000;
+    color: white;
+    width: 250px;
+    height: 50px;
+  }
+  
+  .form-container form button:hover {
+    border: 1px solid black;
+    background: #000000; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      to right,
+      #434343,
+      #000000
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+      to right,
+      #434343,
+      #000000
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  }
+  
+  .forgot-btn {
+    background-color: #434343a4 !important;
+    border: 0 !important;
+  }
+  
+  .forgot-btn:hover {
+    color: white !important;
+  }
+  .nav-item{
+    margin-right: "150px";
+  }
