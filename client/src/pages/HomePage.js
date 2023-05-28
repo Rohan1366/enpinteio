@@ -16,7 +16,8 @@ const HomePage = () => {
  
   return (
     <Layout >
-       <h1>hii</h1>
+       <h1>Banking System</h1>
+       <h3>Please Go to the Dashboard</h3>
     </Layout>
   );
 };

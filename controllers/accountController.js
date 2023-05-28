@@ -1,5 +1,8 @@
 import express from 'express'
 import accounts from '../models/accountModel.js'
+import dotenv from 'dotenv'
+
+dotenv.config();
 const AccountRouter = express.Router();
 
 AccountRouter.post("/deposit", async (req, res) => {
@@ -68,5 +71,28 @@ AccountRouter.post("/withdraw", async (req, res) => {
     return res.status(500).json({ message: "Internal Server Error" });
   }
 });
+AccountRouter.post("/verify", async (req, res) => {
+  try {
+    let { token } = req.body;
+    let user = await Verify(token);
+    console.log(user);
+    res.send({ user });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      error: error,
+    });
+  }
+});
+async function Verify(token) {
+  let user = jwt.verify(token, process.env.JWT_SECRET);
+  return user;
+}
+
+function generateToken(payload) {
+  let token = jwt.sign(payload, process.env.JWT_SECRET);
+  return token;
+}
+
 
 export default AccountRouter;

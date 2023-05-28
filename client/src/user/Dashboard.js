@@ -3,7 +3,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { Button, TextField, CircularProgress } from "@mui/material";
 import Layout from '../components/Layout/Layout'
-
+import { useAuth } from "../context/auth";
 export default function Dashboard() {
   const [user, setUser] = useState(0);
   const [data, setData] = useState(null);
@@ -12,12 +12,13 @@ export default function Dashboard() {
   const [balanceAfterDeposit, setBalanceAfterDeposit] = useState(null);
   const [isDepositing, setIsDepositing] = useState(false);
   const [isWithdrawing, setIsWithdrawing] = useState(false);
-
+  //const [auth, setAuth] = useAuth();
   useEffect(() => {
-    const token = localStorage.getItem("papa");
+    const token = localStorage.getItem("auth");
+  // setUser(token)
     if (token) {
       axios
-        .post("/api/v1/bank/verify", { token })
+        .post("/api/v1/account/verify", { token })
         .then((response) => {
           const user = response.data.user;
           setUser(user);
@@ -27,6 +28,8 @@ export default function Dashboard() {
         });
     }
   }, []);
+
+ 
 
   useEffect(() => {
     if (user) {
@@ -50,6 +53,9 @@ export default function Dashboard() {
   }, [user]);
 
   const handleDeposit = async () => {
+
+    
+    
     if (!depositAmount || isNaN(depositAmount) || depositAmount <= 0) {
       toast.error("Please enter a valid deposit amount.");
       return;
@@ -109,6 +115,8 @@ export default function Dashboard() {
   return (
     <Layout>
       <h2>Transaction Page</h2>
+
+      <h1>user {user.name}</h1>
       {user && (
         <div
           style={{

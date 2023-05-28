@@ -8,7 +8,7 @@ const Layout = ({ children }) => {
     <div>
      
       <Header/>
-      <main style={{ minHeight: "70vh", marginTop:"90px" }}>
+      <main style={{ minHeight: "70vh", marginTop:"90px" , textAlign:"center" }}>
       <Toaster />
 
         {children}
