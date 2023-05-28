@@ -69,4 +69,4 @@ AccountRouter.post("/withdraw", async (req, res) => {
   }
 });
 
-module.exports = AccountRouter;
+export default AccountRouter;
